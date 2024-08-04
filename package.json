@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@mui/icons-material": "^5.16.6",
+    "bootstrap": "^5.3.3",
+    "firebase": "^9.23.0",
+    "react-bootstrap": "^2.10.4",
+    "reactfire": "^4.2.3"
+  }
+}
