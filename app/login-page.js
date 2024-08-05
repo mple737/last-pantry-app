@@ -18,25 +18,25 @@ export default function LoginPage() {
       router.push('/home'); 
     } catch (error) {
       console.error('Google Login Error:', error.message);
-      
     }
   };
 
   return (
     <Container fluid className="d-flex align-items-center justify-content-center min-vh-100 bg-light">
-      <Row className="w-100">
-        <Col md={6} lg={4} className="mx-auto">
-          <Card className="p-4 shadow-lg">
-            <Card.Body>
+      <Row className="w-100 justify-content-center">
+        <Col md={6} lg={4} className="d-flex align-items-center justify-content-center">
+          <Card className="p-4 shadow-lg" style={{ width: '100%', maxWidth: '400px' }}>
+            <Card.Body className="d-flex flex-column align-items-center justify-content-center">
               <h3 className="text-center mb-4">Pantry Login</h3>
-              <div className="text-center mt-3 mb-3">Log in with Google</div>
+              
               <Button
                 variant="light"
-                className="w-100 d-flex align-items-center justify-content-center"
+                className="d-flex align-items-center justify-content-center"
                 onClick={handleGoogleLogin}
+                style={{ width: '100%', padding: '16px', fontSize: '18px' }}
               >
-                <img src="/google.png" alt="Google" className="me-2" />
-                Continue with Google
+                 <img src="./google-login.png" alt="Google Login" style={{ width: '100%', height: 'auto' }} />
+             
               </Button>
             </Card.Body>
           </Card>
