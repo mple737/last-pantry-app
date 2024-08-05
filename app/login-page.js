@@ -1,16 +1,25 @@
 "use client";
 import { useState } from 'react';
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
+import { auth, provider } from '../firebase';
+import { signInWithPopup } from 'firebase/auth';
+import { useRouter } from 'next/navigation'; // Use Next.js navigation for redirection
 
-export default function LoginPage({ onLogin }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export default function LoginPage() {
+  const router = useRouter(); // For navigation
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onLogin(email, password); // Pass email and password to the parent component
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log('Google Login successful:', user);
+      router.push('/home'); 
+    } catch (error) {
+      console.error('Google Login Error:', error.message);
+      
+    }
   };
 
   return (
@@ -19,30 +28,16 @@ export default function LoginPage({ onLogin }) {
         <Col md={6} lg={4} className="mx-auto">
           <Card className="p-4 shadow-lg">
             <Card.Body>
-              <h3 className="text-center mb-4">Login</h3>
-              <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </Form.Group>
-                <Button variant="primary" type="submit" className="w-100">
-                  Log In
-                </Button>
-              </Form>
+              <h3 className="text-center mb-4">Pantry Login</h3>
+              <div className="text-center mt-3 mb-3">Log in with Google</div>
+              <Button
+                variant="light"
+                className="w-100 d-flex align-items-center justify-content-center"
+                onClick={handleGoogleLogin}
+              >
+                <img src="/google.png" alt="Google" className="me-2" />
+                Continue with Google
+              </Button>
             </Card.Body>
           </Card>
         </Col>

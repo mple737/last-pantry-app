@@ -21,11 +21,13 @@ export default function Home() {
   const camera = useRef(null); // Camera reference
 
   useEffect(() => {
+
     // Debugging: Log authentication state change
     const unsubscribe = auth.onAuthStateChanged(user => {
       console.log('Auth state changed:', user);
       setUser(user);
     });
+
     return () => unsubscribe();
   }, []);
 
@@ -150,7 +152,7 @@ export default function Home() {
               <Form>
                 {showCamera ? (
                   <div className="camera-container">
-                    <Camera ref={camera} numberOfCamerasCallback={() => {}} /> {/* Adjust if needed */}
+                    <Camera ref={camera} numberOfCamerasCallback={() => {}} /> {}
                     <div className="camera-controls">
                       <Button
                         className="btn-cancel"
@@ -226,7 +228,7 @@ export default function Home() {
                     placeholder="Search..."
                     onChange={handleSearch}
                   />
-                  <Button variant="outline-primary">Search</Button>
+                  <Button variant="outline-primary"> Search </Button>
                 </InputGroup>
               </Col>
             </Row>
@@ -234,7 +236,11 @@ export default function Home() {
 
           <Container>
             <Row className="mb-4">
-              <Col className="text-center py-3 border rounded" style={{ backgroundColor: darkMode ? '#333' : '#83848a' }}>
+              <Col className="text-center py-3 border rounded" style={{ 
+                
+                backgroundColor: darkMode ? '#333' : '#83848a' 
+                
+                }}>
                 <h2>Inventory Items</h2>
               </Col>
             </Row>
@@ -243,8 +249,10 @@ export default function Home() {
                 <Col md={4} key={name}>
                   <div
                     className="item-box d-flex flex-column align-items-center p-3 border rounded"
+                   
                     style={{
                       backgroundColor: darkMode ? '#444' : '#e9ecef', // Darker box background
+                      
                       border: `2px solid ${darkMode ? '#ddd' : '#ccc'}`, // Light border color for contrast
                     }}
                   >
@@ -255,6 +263,7 @@ export default function Home() {
                         height: '100px', // Adjust image placeholder height
                         backgroundColor: darkMode ? '#555' : '#ddd', // Light background for image placeholder
                         borderRadius: '8px',
+                     
                       }}
                     >
                       {image ? (
