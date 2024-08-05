@@ -1,1 +1,41 @@
-node_modules
+# Node.js modules
+/node_modules
+
+# Yarn PnP
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Testing coverage
+/coverage
+
+# Next.js build output
+/.next/
+/out/
+
+# Production build output
+/build
+
+# macOS system files
+.DS_Store
+
+# Certificates
+*.pem
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment files
+.env*.local
+
+# Vercel deployment files
+.vercel
+
+# TypeScript build info
+*.tsbuildinfo
+next-env.d.ts
+
+# Optional: ignore other log files
+*.log
