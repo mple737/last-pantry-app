@@ -8,18 +8,19 @@ import { signInWithPopup } from 'firebase/auth';
 import { useRouter } from 'next/navigation'; // Use Next.js navigation for redirection
 
 export default function LoginPage() {
-  const router = useRouter(); 
+  const router = useRouter(); // For navigation
 
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       console.log('Google Login successful:', user);
-      router.push('/page'); 
+       
     } catch (error) {
       console.error('Google Login Error:', error.message);
     }
   };
+  
 
   return (
     <Container fluid className="d-flex align-items-center justify-content-center min-vh-100 bg-light">

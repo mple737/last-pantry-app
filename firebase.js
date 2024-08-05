@@ -33,5 +33,7 @@ if (typeof window !== 'undefined') {
   });
 }
 
+
+
 // Export Firebase services
 export { auth, provider, firestore, firebaseSignInWithEmailAndPassword };
