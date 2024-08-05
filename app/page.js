@@ -7,7 +7,7 @@ import { signInWithPopup, signOut } from 'firebase/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import { Camera } from 'react-camera-pro'; // Ensure this import is correct
-import LoginPage from './LoginPage'; // Import the LoginPage component
+import LoginPage from './login-page'; // Import the LoginPage component
 
 export default function Home() {
   const [inventory, setInventory] = useState([]);
